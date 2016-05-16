@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mycontacts.contacts', ['ngRoute'])
+angular.module('mycontacts.contacts', ['ngRoute','firebase'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/contacts', {
@@ -9,6 +9,7 @@ angular.module('mycontacts.contacts', ['ngRoute'])
   });
 }])
 
-.controller('contactsCtrl', [function() {
+.controller('contactsCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
 	console.log("the contacts controller is loading");
+    console.log($firebaseArray);
 }]);
