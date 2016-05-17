@@ -10,6 +10,11 @@ angular.module('mycontacts.contacts', ['ngRoute','firebase'])
 }])
 
 .controller('contactsCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
-	console.log("the contacts controller is loading");
-    console.log($firebaseArray);
+    var ref = new Firebase('https://mycontacts-rz.firebaseio.com/');
+    $scope.contacts = $firebaseArray(ref);
+    
+    // set the flag addForm to be true, and thus show the form used to add contact
+    $scope.showAddForm = function() {
+        $scope.addForm = true;
+    }
 }]);
